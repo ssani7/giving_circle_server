@@ -20,8 +20,9 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserController = exports.login = exports.register = void 0;
+exports.UserController = exports.getAllUser = exports.login = exports.register = void 0;
 const user_service_1 = require("./user.service");
+const usr_model_1 = require("./usr.model");
 const register = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const userData = __rest(req.body, []);
@@ -50,7 +51,21 @@ const login = (req, res, next) => __awaiter(void 0, void 0, void 0, function* ()
     }
 });
 exports.login = login;
+const getAllUser = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const result = yield usr_model_1.User.find();
+        res.status(200).json({
+            success: true,
+            data: result,
+        });
+    }
+    catch (err) {
+        next(err);
+    }
+});
+exports.getAllUser = getAllUser;
 exports.UserController = {
     register: exports.register,
     login: exports.login,
+    getAllUser: exports.getAllUser,
 };

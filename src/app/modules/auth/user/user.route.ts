@@ -4,9 +4,7 @@ import { UserController } from './user.controller';
 const router = express.Router();
 
 router
-  .get('/', (req, res) => {
-    res.send('hi');
-  })
+  .get('/', UserController.getAllUser)
   .post('/login', UserController.login)
   .post('/register', UserController.register);
 

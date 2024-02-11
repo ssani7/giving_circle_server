@@ -1,8 +1,8 @@
 import cors from 'cors';
 import express, { Application, Request, Response, urlencoded } from 'express';
 
-// import { globalErrorHandler } from './app/middleware/globalErrorHandler';
-// import { UserRouter } from './app/modules/auth/user/user.route';
+import { globalErrorHandler } from './app/middleware/globalErrorHandler';
+import { UserRouter } from './app/modules/auth/user/user.route';
 const app: Application = express();
 
 app.use(cors());
@@ -13,8 +13,8 @@ app.get('/', (req: Request, res: Response) => {
   res.send('Welcome to Giving Circle');
 });
 
-// app.use('/auth', UserRouter);
+app.use('/auth', UserRouter);
 
-// app.use(globalErrorHandler);
+app.use(globalErrorHandler);
 
 export default app;
