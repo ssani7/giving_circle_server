@@ -2,7 +2,7 @@ import cors from 'cors';
 import express, { Application, Request, Response, urlencoded } from 'express';
 
 import { globalErrorHandler } from './app/middleware/globalErrorHandler';
-import { UserRouter } from './app/modules/user/user.route';
+import { UserRouter } from './app/modules/auth/user/user.route';
 const app: Application = express();
 
 app.use(cors());
@@ -15,6 +15,6 @@ app.get('/', (req: Request, res: Response) => {
 
 app.use(globalErrorHandler);
 
-app.use('/user', UserRouter);
+app.use('/auth', UserRouter);
 
 export default app;
