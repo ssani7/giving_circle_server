@@ -1,8 +1,9 @@
 {
+  "type": "module",
   "name": "giving_circle_server",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "src/server.ts",
   "scripts": {
     "start": "ts-node-dev --respawn --transpile-only src/server.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
