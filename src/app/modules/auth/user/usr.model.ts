@@ -19,7 +19,7 @@ const userSchema = new Schema<IUser>(
     },
     role: {
       type: String,
-      required: false,
+      required: true,
     },
   },
   {
