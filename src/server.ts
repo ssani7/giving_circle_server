@@ -6,7 +6,7 @@ import app from './app';
 
 const port = config.port;
 
-async function main() {
+export default async function main() {
   let server: Server;
   try {
     await mongoose.connect(config.database_url as string);

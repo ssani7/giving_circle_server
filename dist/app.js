@@ -29,6 +29,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const cors_1 = __importDefault(require("cors"));
 const express_1 = __importStar(require("express"));
 const globalErrorHandler_1 = require("./app/middleware/globalErrorHandler");
+const user_route_1 = require("./app/modules/auth/user/user.route");
 const app = (0, express_1.default)();
 app.use((0, cors_1.default)());
 app.use(express_1.default.json());
@@ -36,12 +37,6 @@ app.use((0, express_1.urlencoded)({ extended: true }));
 app.get('/', (req, res) => {
     res.send('Welcome to Giving Circle');
 });
-// app.use('/auth', UserRouter);
-// app.use('/test', (req, res) => {
-//   res.json({
-//     email: 'sanaullah@gmail.com',
-//     password: '123456',
-//   });
-// });
+app.use('/auth', user_route_1.UserRouter);
 app.use(globalErrorHandler_1.globalErrorHandler);
 exports.default = app;
