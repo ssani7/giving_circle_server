@@ -19,8 +19,8 @@ export const register = async (userdata: RegisterData) => {
 };
 
 export const login = async (userdata: LoginData) => {
-  console.log('🚀 ~ login ~ userdata:', userdata);
   const user = await User.findOne({ email: userdata.email });
+  console.log('🚀 ~ login ~ user:', user);
 
   if (!user) throw new Error('No user found for : ' + userdata.email);
 
